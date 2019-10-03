@@ -17,8 +17,8 @@
  * </ul>`
  * <li> `browser` - generate files needed for browser (browserify)
  * <ul>
- * <li> `browser:uncompressed` - build uncomprssed browser bundle (`litecore-*.js`)
- * <li> `browser:compressed` - build compressed browser bundle (`litecore-*.min.js`)
+ * <li> `browser:uncompressed` - build uncomprssed browser bundle (`dogecore-*.js`)
+ * <li> `browser:compressed` - build compressed browser bundle (`dogecore-*.min.js`)
  * <li> `browser:maketests` - build `tests.js`, needed for testing without karma
  * </ul>`
  * <li> `lint` - run `jshint`
@@ -53,12 +53,12 @@ function startGulp(name, opts) {
 
   opts = opts || {};
   var browser = !opts.skipBrowser;
-  var fullname = name ? 'litecore-' + name : 'litecore';
+  var fullname = name ? 'dogecore-' + name : 'dogecore';
   var files = ['lib/**/*.js'];
   var tests = ['test/**/*.js'];
   var alljs = files.concat(tests);
 
-  var buildPath = './node_modules/litecore-build/';
+  var buildPath = './node_modules/dogecore-build/';
   var buildModulesPath = buildPath + 'node_modules/';
   var buildBinPath = buildPath + 'node_modules/.bin/';
 
@@ -102,9 +102,9 @@ function startGulp(name, opts) {
     var browserifyCommand;
 
     if (name !== 'lib') {
-      browserifyCommand = buildBinPath + 'browserify --require ./index.js:' + fullname + ' --external litecore-lib -o ' + fullname + '.js';
+      browserifyCommand = buildBinPath + 'browserify --require ./index.js:' + fullname + ' --external dogecore-lib -o ' + fullname + '.js';
     } else {
-      browserifyCommand = buildBinPath + 'browserify --require ./index.js:litecore-lib -o litecore-lib.js';
+      browserifyCommand = buildBinPath + 'browserify --require ./index.js:dogecore-lib -o dogecore-lib.js';
     }
 
     gulp.task('browser:uncompressed', shell.task([
