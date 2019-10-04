@@ -1,5 +1,5 @@
 {
-  "name": "dogecore-build",
+  "name": "@csio.company/dogecore-build",
   "version": "0.5.5",
   "description": "A helper for common tasks to build dogecoin modules'",
   "main": "index.js",
